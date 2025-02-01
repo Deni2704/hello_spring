@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body class="container">
+
+<header th:replace="~{fragments :: header}"></header>
+
+<h1>Tags</h1>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Tag Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:block th:each="tag : ${tags}">
+        <td>
+            <!-- Afișează numele tag-ului și link către evenimentele asociate -->
+            <a th:text="${tag.displayName}" th:href="'/events?tagId=' + ${tag.id}"></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
